@@ -1,0 +1,54 @@
+<%- include('partials/_head.ejs') -%>
+
+<body>
+
+  <%- include('partials/_navigation.ejs') -%>
+
+  <!-- Page Header -->
+  <header class="masthead bgrnd" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1><%= post.title %></h1>
+            <span class="meta"><%= post.dateCreated %> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h1><%= post.title %></h1>
+          <p class="subheading"><%= post.detail %></p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus sunt vero deserunt reiciendis commodi.
+            Recusandae mollitia ab quisquam similique necessitatibus libero, illo nemo voluptates provident minus dolore
+            ea magnam velit.</p>
+          <div class="row mx-auto text-center">
+            <div class="col-6">
+              <a href="/edit/post/<%= post._id %>" class="btn btn-success mx-auto">Edit Post</a>
+            </div>
+            <div class="col-6">
+              <a href="/post/<%= post._id %>?_method=DELETE" class="btn btn-danger mx-auto"
+                onclick="return confirm('Are you sure?')">Delete Post</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <%- include('partials/_footer.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+version: '3'
+services:
+  smartedu:
+    container_name: smartedu-site
+    build: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - smartedu-db
+    environment:
+      - PORT=8000
+      - DB_URL=smartedu-db
+    volumes:
+      - smartedu:/web-apps/smartedu
+    networks:
+      - smartedu-network
+  smartedu-db:
+    container_name: smartedu-db
+    image: mongo:7.0.5
+    expose:
+      - 27017
+    volumes:
+      - smartedu:/data/db
+    networks:
+      - smartedu-network
+volumes:
+  smartedu:
+networks:
+  smartedu-network:
+    name: smartedu-network
+    driver: bridge
+    
+    

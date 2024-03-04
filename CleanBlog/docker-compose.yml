@@ -1,0 +1,31 @@
+version: '3'
+services:
+  cleanblog:
+    container_name: cleanblog-site
+    build: .
+    ports:
+      - 8010:8010
+    depends_on:
+      - cleanblog-db
+    environment:
+      - PORT=8010
+      - DB_URL=cleanblog-db
+    volumes:
+      - cleanblog:/web-apps/cleanblog
+    networks:
+      - cleanblog-network
+  cleanblog-db:
+    container_name: cleanblog-db
+    image: mongo:7.0.5
+    expose:
+      - 27017
+    volumes:
+      - cleanblog:/data/db
+    networks:
+      - cleanblog-network
+volumes:
+  cleanblog:
+networks:
+  cleanblog-network:
+    driver: bridge
+    name: cleanblog-network

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  pcat:
+    container_name: pcat-site
+    build: .
+    ports:
+      - 8020:8020
+    depends_on:
+      - pcat-db
+    environment:
+      - PORT=8020
+      - DB_URL=pcat-db
+    volumes:
+      - pcat:/web-apps/pcat
+    networks:
+      - pcat-network
+  pcat-db:
+    container_name: pcat-db
+    image: mongo:7.0.5
+    expose:
+      - 27017
+    volumes:
+      - pcat:/data/db
+    networks:
+      - pcat-network
+volumes:
+  pcat:
+networks:
+  pcat-network:
+    driver: bridge
+    name: pcat-network

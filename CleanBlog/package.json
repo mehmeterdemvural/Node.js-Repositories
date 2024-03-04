@@ -1,0 +1,24 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node App.js",
+    "start-dev": "nodemon App"
+  },
+  "author": "Mehmet Erdem VURAL <mehmeterdemvural@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prettier": "2.8.3"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.1.3"
+  }
+}

@@ -1,0 +1,123 @@
+<%- include('./partials/_header.ejs') %>
+
+<body class="host_version">
+
+	<%- include('./partials/_navigation.ejs') %>
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1>Courses<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+		</div>
+	</div>
+
+	<div id="overviews" class="section wb">
+		<div class="container">
+			<div class="section-title row text-center">
+				<div class="col-md-8 offset-md-2">
+					<p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+						lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
+				</div>
+			</div><!-- end title -->
+
+			<hr class="invis">
+
+			<div class="row">
+				<div class="col-lg-9 col-md-8 col-sm-12">
+					<div class="row">
+						<% for (let i = 0; i < courses.length; i++) { %>
+						<div class="col-md-6 col-sm-12">
+							<div class="blog-item">
+								<div class="image-blog">
+									<a href="/courses/course/<%= courses[i].slug %>"><img style="height: 250px;"
+											src="<%= courses[i].image %>" alt="<%= courses[i].name %>"
+											title="<%= courses[i].name %>" class="img-fluid"></a>
+								</div>
+								<div class="meta-info-blog">
+									<span><i class="fa fa-calendar"></i> <a
+											href="#"><%= courses[i].createdAt.toLocaleString().substring(0, 10) %></a>
+									</span>
+									<span><i class="fa fa-tag"></i> <a href="#"><%= courses[i].createdBy.name %></a>
+									</span>
+									<span><i class="fa fa-paperclip"></i> <a
+											href="#"><%= courses[i].category.name %></a></span>
+								</div>
+								<div class="blog-title">
+									<h2><a href="/courses/course/<%= courses[i].slug %>">
+											<%= courses[i].name %></a></h2>
+								</div>
+								<div class="blog-desc">
+									<a href="/courses/course/<%= courses[i].slug %>">
+										<% if(courses[i].description.length > 100) { %>
+										<p><%= courses[i].description.substring(0, 100) + ' ...' %></p>
+										<% } else { %>
+										<p><%= courses[i].description %></p>
+										<% } %>
+									</a>
+
+								</div>
+								<div class="blog-button">
+									<a class="hover-btn-new orange text-center"
+										href="/courses/course/<%= courses[i].slug %>" style="width: 100%;"><span>Read
+											More<span></a>
+								</div>
+							</div>
+						</div><!-- end col -->
+						<% } %>
+					</div>
+
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-12 right-single">
+					<div class="widget-search">
+						<div class="site-search-area">
+							<form method="GET" id="site-searchform" action="/courses">
+								<div>
+									<input class="input-text form-control" name="search" id="search"
+										placeholder="Search . . ." type="text">
+									<button id="searchsubmit" value="Search" type="submit"></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="position-sticky">
+						<a href="/courses">
+							<h3 class="widget-title">Categories</h3>
+						</a>
+						<ul>
+							<% for (let i = 0; i < categories.length; i++) { %>
+							<li><a href="/courses?categories=<%= categories[i].slug %>"
+									class="<%= categorySlug === categories[i].slug && 'sidebar-active' %>">
+									<%= categories[i].name %> </a></li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</div><!-- end section -->
+
+	<div class="parallax section dbcolor">
+		<div class="container">
+			<div class="row logos">
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+					<a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
+				</div>
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</div><!-- end section -->
+
+	<%- include('./partials/_footer.ejs') %>
