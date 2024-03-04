@@ -1,0 +1,15 @@
+{
+  "name": "node-projects",
+  "version": "1.0.0",
+  "description": "Sample Node.js Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express.js"
+  ],
+  "author": "Mehmet Erdem VURAL <mehmeterdemvural@gmial.com>",
+  "license": "MIT"
+}
